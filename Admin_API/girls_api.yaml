@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: ADMIN API for managing the girls
+  description: This is the API for admins to manage the girls
+  version: 1.0.0
+servers:
+  - url: '/api'
+paths:
+  /girls:
+    get:
+      operationId: girls.read_all
+      tags:
+        - Girls
+      summary: Read the list with girls
+      responses:
+        200:
+          description: Successfully read the girls' list
+    post:
+      operationId: girls.create
+      tags:
+        - Girls
+      summary: Add a new girl
+      requestBody:
+        description: Add a new girl
+        required: true
+        content:
+          application/json:
+            schema:
+              x-body-name: "girl"
+              $ref: "#/components/schemas/Girl"
+      responses:
+        201:
+          description: Successfully added a girl
+  /girls/{id}:
+    get:
+      operationId: girls.read_girlById
+      tags:
+        - Girls
+      summary: Read one girl with a specific ID
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Successfully read the girl's information
+        404:
+          description: Not found
+    put:
+      operationId: girls.update_girlById
+      tags:
+        - Girls
+      summary: Update the information of a girl
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        200:
+          description: Successfully updated the information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "girl"
+              $ref: "#/components/schemas/Girl"
+    delete:
+      operationId: girls.delete_girlById
+      tags:
+        - Girls
+      summary: Delete a girl
+      parameters:
+        - $ref: "#/components/parameters/id"
+      responses:
+        204:
+          description: Successfully deleted the girl
+  /girls/{name}:
+    get:
+      operationId: girls.read_girlByName
+      tags:
+        - Girls
+      summary: Read girls or girl by their/her name
+      parameters:
+        - $ref: "#/components/parameters/name"
+      responses:
+        200:
+          description: Successfully read the girl's information
+        404:
+          description: Not found
+
+components:
+  schemas:
+    Girl:
+      type: object
+      required:
+        - name
+        - age
+        - hair_colour
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        age:
+          type: integer
+        hair_colour:
+          type: string
+        phone:
+          type: string
+        boobs:
+          type: string
+          nullable: true
+        ass:
+          type: string
+          nullable: true
+        race:
+          type: string
+          nullable: true
+        bmi:
+          type: number
+          nullable: true
+        personality:
+          type: string
+          nullable: true
+        services:
+          type: string
+          nullable: true
+  parameters:
+    name:
+      name: name
+      description: The name of the girl
+      in: path
+      required: true
+      schema:
+        type: string
+    id:
+      name: id
+      description: The unique ID of every girl
+      in: path
+      required: true
+      schema:
+        type: integer

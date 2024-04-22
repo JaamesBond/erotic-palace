@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form class="form" method="post" action="{{url_for('login')}}">
+        <p class="title">Login Form</p>
+        <input placeholder="Username" class="username input" name="username" type="text">
+        <input placeholder="Password" class="password input" name="password" type="password">
+        <button class="btn" type="submit">Login</button>
+    </form>
+    <div class="form">
+        <p class="text">Don't have an account?</p>
+        <button id="signup" class="btn">Sign Up Now</button>
+        <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+    </div>
+</div>
+</body>
+</html>
