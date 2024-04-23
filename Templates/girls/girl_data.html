@@ -1,0 +1,39 @@
+<table>
+    <tr>
+        <td>Name:</td><td><input type="text" name="name" {% if girl is defined %}value="{{ girl.name }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Age:</td><td><input type="number" name="age" {% if girl is defined %}value="{{ girl.age }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Hair Colour:</td><td><input type="text" name="hair_colour" {% if girl is defined %}value="{{ girl.hair_colour }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Phone:</td><td><input type="text" name="phone" {% if girl is defined %}value="{{ girl.phone }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Boobs:</td><td><input type="text" name="boobs" {% if girl is defined %}value="{{ girl.boobs }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Ass:</td><td><input type="text" name="ass" {% if girl is defined %}value="{{ girl.ass }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Race:</td><td><input type="text" name="race" {% if girl is defined %}value="{{ girl.race }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>BMI:</td><td><input type="number" name="bmi" {% if girl is defined %}value="{{ girl.bmi }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Personality:</td><td><input type="text" name="personality" {% if girl is defined %}value="{{ girl.personality }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Services:</td><td><input type="text" name="services" {% if girl is defined %}value="{{ girl.services }}"{% endif %}></td>
+    </tr>
+    <tr>
+        <td>Upload Photo:</td>
+        <td><input type="file" name="file" id="file"></td>
+    </tr>
+    <tr>
+        <td></td><td><input type="submit" value="Save"></td>
+    </tr>
+</table>
